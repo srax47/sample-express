@@ -5,4 +5,4 @@ app.get('/', function(req, res) {
     res.send('Hello World!');
 });
 
-app.listen(process.env.APP_PORT || 80);
+app.listen(process.env.APP_PORT || 3000);

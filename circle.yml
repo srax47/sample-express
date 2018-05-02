@@ -1,0 +1,12 @@
+machine:
+    environment:
+        APP_PORT: "3000"
+
+deployment:
+    production:
+        branch: production
+        commands:
+            - aws --version
+            - aws configure set default.region us-east-1
+            - aws configure set default.output json
+            - aws ssm send-command --instance-ids "i-0cb2b964d3e14fd9f" --document-name "AWS-RunShellScript" --comment "Update app" --parameters "commands=/home/centos/update_app.sh" --output text
