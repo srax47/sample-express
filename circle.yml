@@ -9,4 +9,4 @@ deployment:
             - aws --version
             - aws configure set default.region us-east-1
             - aws configure set default.output json
-            - aws ssm send-command --instance-ids "i-08d920de6cdf412b6" --document-name "AWS-RunShellScript" --comment "Update app" --parameters "commands=runuser -l centos -c '/home/centos/update_app.sh'" --output text
+            - aws ssm send-command --instance-ids "i-08d920de6cdf412b6" --document-name "AWS-RunShellScript" --comment "Update app" --parameters commands=["runuser -l centos -c '/home/centos/update_app.sh'"] --output text
